@@ -1,0 +1,20 @@
+{
+  "name": "node-daily-scheduler",
+  "version": "1.0.0",
+  "description": "A node application that helps you schedule your day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Jensen",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "chalk": "2.3.0",
+    "express": "4.16.2",
+    "gulp": "3.9.1",
+    "jshint": "2.9.5",
+    "mocha": "4.1.0",
+    "mongoose": "5.0.0-rc0"
+  }
+}
