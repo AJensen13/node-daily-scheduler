@@ -1,8 +1,10 @@
 var chalk = require('chalk'),
+    path = require('path'),
     express = require('express');
 
 var app = express();
 
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static('views'));
 
 app.get('/', function(req, res) {
