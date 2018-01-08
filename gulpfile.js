@@ -23,7 +23,7 @@ gulp.task('watch', function() {
 
 gulp.task('server',function(){  
   nodemon({
-      'script': 'server.js',
+      'script': 'routes/server.js',
       'ignore': 'public/js/*.js'
   });
 });
