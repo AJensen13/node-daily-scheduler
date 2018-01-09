@@ -11,19 +11,19 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('html',function(){  
-  return gulp.src('views/**/*.html')
+  return gulp.src('views/**/*.ejs')
   .pipe(livereload());
 });
 
 gulp.task('watch', function() {  
   livereload.listen();
   gulp.watch('public/js/*.js', ['scripts']);
-  gulp.watch('views/**/*.html', ['html']);
+  gulp.watch('views/**/*.ejs', ['ejs']);
 });
 
 gulp.task('server',function(){  
   nodemon({
-      'script': 'routes/server.js',
+      'script': 'app.js',
       'ignore': 'public/js/*.js'
   });
 });

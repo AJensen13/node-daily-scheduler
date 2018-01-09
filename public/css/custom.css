@@ -3,6 +3,9 @@ input {
     margin: 1em 0;
 }
 
+form {
+    margin-top: 2em;
+}
 /* Classes */
 
 /* IDs */
