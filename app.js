@@ -1,24 +1,27 @@
-var chalk = require('chalk')
-    express = require('express');
+var express = require('express')
+    chalk = require('chalk');;
 
 var app = express();
 
-app.use(express.static('views'));
+var port = process.env.PORT || 3000;
 
-app.get('/', function(req, res) {
-    res.send('index.html');
+app.use(express.static('public'));
+app.set('views', './src/views');
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res){
+    res.render('index');
 });
 
-app.get('/:id/profile/', function(req, res){
-
+app.get('/profile', function(req, res){
+    res.render('profile');
 });
 
-app.get('/:id/calendar/', function(req, res){
-
+app.get('/calendar', function(req, res){
+    res.render('calendar');
 });
 
-// app.get('/:id/', function(req, res){
-
-// });
-
-app.listen(3000);
+app.listen(port, function(err) {
+    console.log(chalk.green('Running server on port ' + port));
+});
