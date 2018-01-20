@@ -36,30 +36,36 @@
             <a class="nav-link" href="/profile">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/calendar">Calendars</a>
+            <a class="nav-link" href="/calendar">Calendar</a>
           </li>
         </ul>
       </div>
     </nav>
 
     <div class="container">
+      
+      <div class="row">
+        <h1 class="text-center col-lg-12">Profile</h1>
+      </div> 
 
       <div class="row">
         <!-- Biography -->
-        <img src="images/default-placeholder.png" alt="">
+        <div class="col-lg-4">
+          <img src="<%= imgurl%>" alt="biography picture">
+        </div>
         
-        <h5>Name</h5>
-        <p>Biography Info: Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
-
-        <h5>Calendars</h5>
-        <ul>
-            <li>Calendar 1</li>
-            <li>Calendar 2</li>
-            <li>Calendar 3</li>
-            <li>Calendar 4</li>
-            <li>Calendar 5</li>
-        </ul>
-
+        <div class="col-lg-7 offset-lg-1">
+          <h4><%= username %></h4>
+          <p><strong>Biography Info:</strong> <%= biography %></p>
+          <!-- Calendars -->
+          <h3>Calendar</h3>
+          
+          <div class="list-group calendarList">
+            <% calendars.forEach(function(calendar){ %>
+              <a href="<%= calendar.url %>"><button type="button" class="list-group-item list-group-item-action"><%= calendar.name %></button></a>
+            <% })%>
+          </div>
+        </div>
       </div>
 
     </div> <!-- /container -->
