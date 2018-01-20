@@ -12,9 +12,7 @@ img {
 .row {
   margin-top: 1em; }
 
-.calendarList {
-  margin-top: 1em; }
-  .calendarList a {
-    margin-top: 1em; }
+.calendarList a {
+  margin-top: .5em; }
 
 /* IDs */
