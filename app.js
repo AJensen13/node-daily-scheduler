@@ -1,5 +1,6 @@
-var express = require('express')
-    chalk = require('chalk');;
+var express = require('express'),
+    chalk = require('chalk'),
+    calendar = require('node-calendar');
 
 var app = express();
 
@@ -15,11 +16,29 @@ app.get('/', function(req, res){
 });
 
 app.get('/profile', function(req, res){
-    res.render('profile');
+    var myProfile = {
+        username: "John Barthomoleo",
+        biography: "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.",
+        imgurl: "images/default-placeholder.png",
+        calendars: [
+            {
+                name: 'Calendar 1',
+                url: '#'
+            },
+            {
+                name: 'Calendar 2',
+                url: '#'
+            }
+        ]
+    }
+    res.render('profile', myProfile);
 });
 
 app.get('/calendar', function(req, res){
-    res.render('calendar');
+    var date = new Date().getFullYear(),
+        cal = new calendar.Calendar(calendar.SUNDAY),
+        yearCalendar = cal.yeardaycalendar(date);
+    res.render('calendar', yearCalendar);
 });
 
 app.listen(port, function(err) {
